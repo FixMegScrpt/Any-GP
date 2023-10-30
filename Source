@@ -81,7 +81,7 @@ Window1:Button("UI Dodge w/TP", function(callback)
     local args = {
         [1] = {
             [1] = "Dodged",
-            [2] = workspace.WisemanDog,
+            [2] = workspace.JuelzTrainsHarder,
         },
 }
 
