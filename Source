@@ -1,1 +1,20 @@
-Made New Reposi
+--Part one
+if game.CreatorType == Enum.CreatorType.User then
+game.Players.LocalPlayer.UserId = game.CreatorId
+end
+if game.CreatorType == Enum.CreatorType.Group then
+game.Players.LocalPlayer.UserId = game:GetService("GroupService"):GetGroupInfoAsync(game.CreatorId).Owner.Id
+end
+
+--Part two
+local mt = getrawmetatable(game)
+local old = mt.__namecall
+setreadonly(mt, false)
+mt.__namecall = newcclosure(function(self, ...)
+local method = getnamecallmethod()
+if method == 'UserOwnsGamePassAsync' or method == 'PlayerHasPass' or method == 'PlayerOwnsAsset' then
+return true
+end
+return old(self, ...)
+end)
+setreado
